@@ -364,7 +364,7 @@ Molecular_functionGO_down <- subset(Dotplot_down, ontology == "molecular_functio
 Molecular_functionGOfilter_down <- filter(Molecular_functionGO_down, Count >= 5 & p.value <= 0.05)
 
 #Graph downregulated molecular functions with dotplot with gene ratios
-DotDownMF <- ggplot(MFF_down, aes(x = GeneRatio, y = fct_reorder(merged, GeneRatio), 
+DotDownMF <- ggplot(Molecular_functionGOfilter_down, aes(x = GeneRatio, y = fct_reorder(merged, GeneRatio), 
                                                          color = ontology, size = Count)) +
   geom_point(color = "red3") +
   theme(axis.text.y = element_text(color = "black", size = 18),
@@ -392,7 +392,7 @@ Cellular_componentGO_down <- subset(Dotplot_down, ontology == "cellular_componen
 Cellular_componentGOfilter_down <- filter(Cellular_componentGO_down, Count >= 5 & p.value <= 0.05)
 
 #Graph biological processes with dotplot with gene ratios
-DotDownCC <- ggplot(CCF_down, aes(x = GeneRatio, y = fct_reorder(merged, GeneRatio), 
+DotDownCC <- ggplot(Cellular_componentGOfilter_down, aes(x = GeneRatio, y = fct_reorder(merged, GeneRatio), 
                                                          color = ontology, size = Count)) +
   geom_point(color = "red3") +
   theme(axis.text.y = element_text(color = "black", size = 18),
